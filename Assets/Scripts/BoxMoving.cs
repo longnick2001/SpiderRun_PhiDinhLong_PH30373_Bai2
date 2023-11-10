@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class BoxMoving : MonoBehaviour
 {
     public float moveDistance = 1.0f; // Khoảng cách di chuyển
     public float moveSpeed = 1.0f; // Tốc độ di chuyển
-
+    public float speed = 3.0f;
     private Vector3 startPos;
     private Vector3 endPos;
 
@@ -14,8 +15,13 @@ public class BoxMoving : MonoBehaviour
     {
         startPos = transform.position;
         endPos = startPos + new Vector3(0, moveDistance, 0);
-
+    
         StartCoroutine(MoveUpDown());
+    }
+
+    private void Update()
+    {
+        
     }
 
     IEnumerator MoveUpDown()
@@ -34,6 +40,7 @@ public class BoxMoving : MonoBehaviour
         {
             t += Time.deltaTime * moveSpeed;
             transform.position = Vector3.Lerp(startPos, endPos, t);
+            transform.Translate(Vector3.left * Time.deltaTime * speed);
             yield return null;
         }
     }

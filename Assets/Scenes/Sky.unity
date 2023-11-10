@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 1625667258}
   - component: {fileID: 1625667257}
   - component: {fileID: 1625667256}
+  - component: {fileID: 1625667259}
   m_Layer: 0
   m_Name: 01_Sky
   m_TagString: Untagged
@@ -247,7 +248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScrollSpeed: 0.5
   offSet: 0
-  renderer: {fileID: 0}
 --- !u!212 &1625667257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -309,12 +309,21 @@ Transform:
   m_GameObject: {fileID: 1625667255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.38, y: -0.01, z: 0}
-  m_LocalScale: {x: 1.174208, y: 1.0017787, z: 0.6029}
+  m_LocalPosition: {x: 0.0225, y: -0.0358, z: 0}
+  m_LocalScale: {x: 1.9639354, y: 1.6633891, z: 0.6029}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1625667259
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625667255}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 277166b9e7375c24385b760093e8c995, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

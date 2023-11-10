@@ -6,7 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
-{
+{    
+    public int health = 10;
+    public Slider blood;
     public ParticleSystem mat;
     public AudioSource death;
     public AudioSource coin;
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
         textScore.text = ""+score;
         textMetter.text = ""+(int)distanceTraveled;
         lastXPosition = transform.position.x;
+        blood.value = health;
     }
     
     // Update is called once per frame
@@ -76,6 +79,22 @@ public class Player : MonoBehaviour
             jumpCount = 0;
             anim.SetBool("run", true);
         }
+
+        if (other.gameObject.tag == "wall")
+        {
+            grounded = true;
+            jumpCount = 0;
+            health -= 5;
+            blood.value = health;
+            if (health <= 0)
+            {
+                death.Play();
+                Metter.text = "" + (int)distanceTraveled;
+                Score.text = "" + score;
+                Time.timeScale = 0;
+                panelGameOver.SetActive(true);
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D other)
@@ -89,6 +108,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.gameObject.tag == "deephold")
         {
             death.Play();

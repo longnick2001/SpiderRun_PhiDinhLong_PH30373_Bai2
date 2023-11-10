@@ -8,7 +8,7 @@ public class Scroll_Mapping : MonoBehaviour
 
     public float offSet;
 
-    public Renderer renderer;
+    private Renderer renderer;
     // Start is called before the first frame update
     void Start()
     {
