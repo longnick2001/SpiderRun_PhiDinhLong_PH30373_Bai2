@@ -6,7 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
-{    
+{
+    public Image fill;
+    public Gradient gradient;
     public int health = 10;
     public Slider blood;
     public ParticleSystem mat;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         textMetter.text = ""+(int)distanceTraveled;
         lastXPosition = transform.position.x;
         blood.value = health;
+        fill.color = gradient.Evaluate(1f);
     }
     
     // Update is called once per frame
@@ -84,8 +87,9 @@ public class Player : MonoBehaviour
         {
             grounded = true;
             jumpCount = 0;
-            health -= 5;
+            health -= 2;
             blood.value = health;
+            fill.color = gradient.Evaluate(blood.normalizedValue);
             if (health <= 0)
             {
                 death.Play();
